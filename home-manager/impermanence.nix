@@ -19,7 +19,7 @@
       ".ssh"
       ".local/share/zed"
       ".config/nixos"
-      ".config/hypr"
+      ".config/cosmic"
       ".config/vesktop"
       ".config/nvim"
       ".config/spotify"
