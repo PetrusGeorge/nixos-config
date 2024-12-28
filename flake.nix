@@ -14,11 +14,6 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     #nixpkgs-cplex.url = "github:nixos/nixpkgs/nixos-22.05";
 
-    umu = {
-      url = "git+https://github.com/Open-Wine-Components/umu-launcher/?dir=packaging\/nix&submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,17 +24,6 @@
     };
     disko = {
       url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    impermanence = {
-      url = "github:nix-community/impermanence";
-    };
-    hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    jerry = {
-      url = "github:justchokingaround/jerry";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

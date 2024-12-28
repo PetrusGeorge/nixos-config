@@ -20,7 +20,7 @@
     useUserPackages = true;
     extraSpecialArgs = {inherit inputs outputs;};
     users = {
-      "zaaz" = import ./home.nix;
+      "petrus" = import ./home.nix;
     };
   };
 }
