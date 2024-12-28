@@ -15,7 +15,7 @@
     ./hardware-configuration.nix
     inputs.disko.nixosModules.default
     inputs.nixos-cosmic.nixosModules.default
-    (import ./disko-config.nix {device = "/dev/nvme0n1";})
+    (import ./disk-config.nix {device = "/dev/nvme0n1";})
   ];
 
   #environment.sessionVariables = rec {

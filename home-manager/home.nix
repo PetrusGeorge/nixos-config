@@ -41,15 +41,11 @@
       steam
       spotify
       vesktop
-      chezmoi
       slack
       librewolf
       chromium
-      xfce.thunar
-      kitty
+      ghostty
       zed-editor
-      steam-run
-      bottles
       nerd-fonts.jetbrains-mono
     ];
 

@@ -1,20 +1,21 @@
-## downloading disk-config.nix
+## Downloading disk-config.nix
 ```bash
-curl https://raw.githubusercontent.com/PetrusGeorge/nixos-config/main/hosts/desktop/disk-config.nix -O /tmp/disk-config.nix
+curl https://raw.githubusercontent.com/PetrusGeorge/nixos-config/refs/heads/main/hosts/desktop/disk-config.nix -O /tmp/disk-config.nix
 ```
 
-## disko formatting command
+## Disko formatting command
 replace `'"/dev/vda"'` with your drive
 ```bash
 sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount /tmp/disk-config.nix --arg device '"/dev/vda"'
 ```
 
-## initialize flake
+## Clone the repo
 ```bash
-nix flake init --template github:PetrusGeorge/nixos-config
+git clone https://github.com/PetrusGeorge/nixos-config.git
+cd nixos-config
 ```
 
-## installing nixos
+## Installing nixos
 ```bash
-TMPDIR=/mnt/Flake/tmp nixos-install --root /mnt --flake /mnt/etc/nixos#default
+TMPDIR=/mnt/Flake/tmp sudo nixos-install --root /mnt --flake .#desktop
 ```
