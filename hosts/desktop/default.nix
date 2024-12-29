@@ -14,7 +14,6 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.disko.nixosModules.default
-    inputs.nixos-cosmic.nixosModules.default
     (import ./disk-config.nix {device = "/dev/nvme0n1";})
   ];
 
@@ -24,7 +23,7 @@
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
 
-   FLAKE = "${XDG_CONFIG_HOME}/nixos";
+    FLAKE = "${XDG_CONFIG_HOME}/nixos";
   };
 
   nix.settings = {
@@ -39,6 +38,11 @@
     device = "nodev";
   };
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  
+  # Fix for 60% layout
+  boot.extraModprobeConfig = ''
+    options hid_apple fnmode=0
+  '';
 
   networking.hostName = "desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -64,16 +68,10 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
-  #programs.hyprland = {
-  #  enable = true;
-  #  package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-  #  xwayland.enable = true;
-  #};
-
-  services.desktopManager.cosmic.enable = true;
-  services.displayManager.cosmic-greeter.enable = true;
-
-  services.xserver.enable = false;
+  # Necessary to make hyprland appear as a session
+  programs.hyprland.enable = true;
+  # Default display manager
+  services.displayManager.ly.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
   #services.displayManager.sddm.wayland.enable = true;
@@ -146,6 +144,7 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
+  # Mount external drives
   fileSystems = {
     "/run/media/SSD" = {
       device = "/dev/sda1";
@@ -156,6 +155,6 @@
       options = ["nofail"];
     };
   };
-
+  
   system.stateVersion = "24.11";
 }

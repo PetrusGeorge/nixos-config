@@ -12,6 +12,7 @@
   # You can import other home-manager modules here
   imports = [
     ./programs
+    ./gui
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
 
@@ -49,13 +50,10 @@
       slack
       librewolf
       chromium
-      kitty
       protonup-qt
+      bitwarden-desktop
       zed-editor
       nerd-fonts.jetbrains-mono
-    ] ++
-    [
-      inputs.ghostty.packages.x86_64-linux.default
     ];
 
   programs.home-manager.enable = true;

@@ -22,5 +22,6 @@
     users = {
       "petrus" = import ./home.nix;
     };
+    backupFileExtension = "backup";
   };
 }
