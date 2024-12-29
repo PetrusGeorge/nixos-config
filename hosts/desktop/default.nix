@@ -18,19 +18,13 @@
     (import ./disk-config.nix {device = "/dev/nvme0n1";})
   ];
 
-  #environment.sessionVariables = rec {
-  #  XDG_CACHE_HOME = "$HOME/.cache";
-  #  XDG_CONFIG_HOME = "$HOME/.config";
-  #  XDG_DATA_HOME = "$HOME/.local/share";
-  #  XDG_STATE_HOME = "$HOME/.local/state";
+  environment.sessionVariables = rec {
+    XDG_CACHE_HOME = "$HOME/.cache";
+    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_DATA_HOME = "$HOME/.local/share";
+    XDG_STATE_HOME = "$HOME/.local/state";
 
-  # FLAKE = "${XDG_CONFIG_HOME}/nixos";
-  #};
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/petrus/nixos";
+   FLAKE = "${XDG_CONFIG_HOME}/nixos";
   };
 
   nix.settings = {
@@ -99,11 +93,14 @@
     pulse.enable = true;
   };
 
+  programs.steam.enable = true;
+  programs.fish.enable = true;
   users.users.petrus = {
     isNormalUser = true;
     description = "Petrus";
     extraGroups = ["networkmanager" "wheel"];
     initialPassword = "123";
+    shell = pkgs.fish;
   };
 
   nixpkgs = {
@@ -127,6 +124,9 @@
     wget
   ];
 
+  # Enable zram
+  zramSwap.enable = true;
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -145,6 +145,17 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  fileSystems = {
+    "/run/media/SSD" = {
+      device = "/dev/sda1";
+      options = ["nofail"];
+    };
+    "/run/media/HD" = {
+      device = "/dev/sdb1";
+      options = ["nofail"];
+    };
+  };
 
   system.stateVersion = "24.11";
 }

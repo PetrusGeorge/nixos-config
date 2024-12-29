@@ -1,13 +1,19 @@
 {device ? throw "Set this to your disk device, e.g. /dev/sda", ...}: {
   disko.devices = {
     disk.main = {
-      inherit device;
       type = "disk";
+      inherit device;
       content = {
         type = "gpt";
         partitions = {
+          boot = {
+            name = "boot";
+            size = "1M";
+            type = "EF02";
+          };
           esp = {
-            size = "1G";
+            name = "ESP";
+            size = "512M";
             type = "EF00";
             content = {
               type = "filesystem";
@@ -15,38 +21,47 @@
               mountpoint = "/boot";
             };
           };
-          root = {
+          root =
+            let
+              mountOptions = [
+                "compress=zstd"
+                "noatime"
+                "ssd"
+                "discard=async"
+                "space_cache=v2"
+              ];
+            in {
             size = "100%";
             content = {
               type = "btrfs";
               extraArgs = [ "-f" ]; # Override existing partition
               subvolumes = {
-                "@" = { };
-                "@/root" = {
+                "@" = {
                   mountpoint = "/";
-                  mountOptions = [ "compress=zstd" "noatime" ];
+                  inherit mountOptions;
                 };
-                "@/home" = {
-                  mountpoint = "/home";
-                  mountOptions = [ "compress=zstd" ];
-                };
-                "@/nix" = {
+                "@nix" = {
                   mountpoint = "/nix";
-                  mountOptions = [ "compress=zstd" "noatime" ];
+                  inherit mountOptions;
                 };
-                "@/var-lib" = {
-                  mountpoint = "/var/lib";
-                  mountOptions = [ "compress=zstd" "noatime" ];
-                };
-                "@/var-log" = {
+                "@log" = {
                   mountpoint = "/var/log";
-                  mountOptions = [ "compress=zstd" "noatime" ];
+                  inherit mountOptions;
                 };
-                "@/var-tmp" = {
-                  mountpoint = "/var/tmp";
-                  mountOptions = [ "compress=zstd" "noatime" ];
+                "@cache" = {
+                  mountpoint = "/var/cache";
+                  inherit mountOptions;
+                };
+                "@tmp" = {
+                  mountpoint = "/tmp";
+                  inherit mountOptions;
+                };
+                "@home" = {
+                  mountpoint = "/home";
+                  inherit mountOptions;
                 };
               };
+              mountpoint = "/";
             };
           };
         };

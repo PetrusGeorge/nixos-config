@@ -1,6 +1,6 @@
 ## Downloading disk-config.nix
 ```bash
-curl https://raw.githubusercontent.com/PetrusGeorge/nixos-config/refs/heads/main/hosts/desktop/disk-config.nix -O /tmp/disk-config.nix
+curl https://raw.githubusercontent.com/PetrusGeorge/nixos-config/refs/heads/main/hosts/desktop/disk-config.nix -o /tmp/disk-config.nix
 ```
 
 ## Disko formatting command
@@ -17,5 +17,5 @@ cd nixos-config
 
 ## Installing nixos
 ```bash
-TMPDIR=/mnt/Flake/tmp sudo nixos-install --root /mnt --flake .#desktop
+TMPDIR=/mnt/tmp sudo nixos-install --root /mnt --flake .#desktop
 ```

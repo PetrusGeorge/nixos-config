@@ -28,6 +28,12 @@
   };
 
   ## Add stuff for your user as you see fit:
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/petrus/.config/nixos";
+  };
   programs.direnv.enable = true;
   programs.neovim.enable = true;
   programs.starship.enable = true;
@@ -38,15 +44,18 @@
       fd
       delta
       fzf
-      steam
       spotify
       vesktop
       slack
       librewolf
       chromium
-      ghostty
+      kitty
+      protonup-qt
       zed-editor
       nerd-fonts.jetbrains-mono
+    ] ++
+    [
+      inputs.ghostty.packages.x86_64-linux.default
     ];
 
   programs.home-manager.enable = true;
