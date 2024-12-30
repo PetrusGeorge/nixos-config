@@ -68,6 +68,8 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
+  # Home manager doest have thunar
+  programs.thunar.enable = true;
   # Necessary to make hyprland appear as a session
   programs.hyprland.enable = true;
   # Default display manager

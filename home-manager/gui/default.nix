@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./hyprland
-    ./gtk.nix
+    ./theme.nix
     ./media.nix
   ];
 }

@@ -35,25 +35,34 @@
     clean.extraArgs = "--keep-since 4d --keep 3";
     flake = "/home/petrus/.config/nixos";
   };
+
+
+  # CLI
   programs.direnv.enable = true;
-  programs.neovim.enable = true;
+  programs.ripgrep.enable = true;
+  programs.bat.enable = true;
+  programs.fd.enable = true;
+  programs.fzf.enable = true;
   programs.starship.enable = true;
+
+  # Browsers
+  programs.librewolf.enable = true;
+  programs.chromium.enable = true;
+
+  # Editors
+  programs.neovim.enable = true;
+  programs.zed-editor.enable = true;
   home.packages = with pkgs;
     [
-      ripgrep
-      bat
-      fd
       delta
-      fzf
       spotify
       vesktop
       slack
-      librewolf
-      chromium
       protonup-qt
       bitwarden-desktop
-      zed-editor
       nerd-fonts.jetbrains-mono
+
+      rustup
     ];
 
   programs.home-manager.enable = true;

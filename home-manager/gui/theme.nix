@@ -35,15 +35,14 @@
       package = pkgs.papirus-icon-theme;
     };
 
-    #theme = {
-    #  # https://github.com/catppuccin/gtk
-    #  name = "catppuccin-macchiato-pink-compact";
-    #  package = pkgs.catppuccin-gtk.override {
-    #    # https://github.com/NixOS/nixpkgs/blob/nixos-23.05/pkgs/data/themes/catppuccin-gtk/default.nix
-    #    accents = ["pink"];
-    #    size = "compact";
-    #    variant = "macchiato";
-    #  };
-    #};
+    theme = {
+        name = "Adwaita-dark";
+        package = pkgs.gnome-themes-extra;
+    };
+  };
+
+  qt = {
+    enable = true;
+    style.name = "adwaita-dark";
   };
 }
