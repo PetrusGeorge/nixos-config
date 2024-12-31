@@ -11,7 +11,7 @@
     gtk.enable = true;
     x11.enable = true;
     package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Ice";
+    name = "Bibata-Modern-Classic";
     size = 24;
   };
 
@@ -36,8 +36,8 @@
     };
 
     theme = {
-        name = "Adwaita-dark";
-        package = pkgs.gnome-themes-extra;
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
     };
   };
 

@@ -36,14 +36,21 @@
     flake = "/home/petrus/.config/nixos";
   };
 
-
   # CLI
   programs.direnv.enable = true;
   programs.ripgrep.enable = true;
   programs.bat.enable = true;
   programs.fd.enable = true;
   programs.fzf.enable = true;
+  programs.tealdeer.enable = true;
   programs.starship.enable = true;
+  programs.yazi.enable = true;
+  programs.lazygit.enable = true;
+  programs.btop.enable = true;
+  programs.zellij.enable = true;
+  programs.eza.enable = true;
+  programs.zoxide.enable = true;
+  programs.thefuck.enable = true;
 
   # Browsers
   programs.librewolf.enable = true;
@@ -52,24 +59,29 @@
   # Editors
   programs.neovim.enable = true;
   programs.zed-editor.enable = true;
-  home.packages = with pkgs;
-    [
-      delta
-      spotify
-      vesktop
-      slack
-      bitwarden-desktop
-      nerd-fonts.jetbrains-mono
+  home.packages = with pkgs; [
+    # CLI
+    hyperfine
+    duf
+    tokei
+    delta
 
-      #TODO: Gaming dir
-      gamescope
-      goverlay
-      protonup-qt
+    # Desktop apps
+    spotify
+    vesktop
+    slack
+    bitwarden-desktop
 
+    nerd-fonts.jetbrains-mono
 
-      #TODO: Programming dir
-      rustup
-    ];
+    #TODO: Gaming dir
+    gamescope
+    goverlay
+    protonup-qt
+
+    #TODO: Programming dir
+    rustup
+  ];
 
   programs.mangohud = {
     enable = true;
@@ -77,6 +89,9 @@
   };
 
   programs.home-manager.enable = true;
+  home.sessionVariables = {
+    EDITOR = "vim";
+  };
 
   ## Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
