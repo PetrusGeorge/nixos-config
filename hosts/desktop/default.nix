@@ -32,6 +32,7 @@
   };
 
   # Bootloader.
+  boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub = {
     enable = true;
     efiSupport = true;
@@ -68,6 +69,11 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
+  # AMD gpu tuning
+  programs.corectrl = {
+    enable = true;
+    gpuOverclock.enable = true;
+  };
   # Home manager doest have thunar
   programs.thunar.enable = true;
   # Necessary to make hyprland appear as a session
@@ -93,12 +99,13 @@
     pulse.enable = true;
   };
 
+  programs.gamemode.enable = true;
   programs.steam.enable = true;
   programs.fish.enable = true;
   users.users.petrus = {
     isNormalUser = true;
     description = "Petrus";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "corectrl"];
     initialPassword = "123";
     shell = pkgs.fish;
   };

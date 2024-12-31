@@ -6,19 +6,17 @@
       content = {
         type = "gpt";
         partitions = {
-          boot = {
-            name = "boot";
-            size = "1M";
-            type = "EF02";
-          };
-          esp = {
+          ESP = {
+            priority = 1;
             name = "ESP";
-            size = "512M";
+            start = "1M";
+            end = "512M";
             type = "EF00";
             content = {
               type = "filesystem";
               format = "vfat";
               mountpoint = "/boot";
+              mountOptions = [ "umask=0077" ];
             };
           };
           root =

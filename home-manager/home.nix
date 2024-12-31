@@ -58,12 +58,23 @@
       spotify
       vesktop
       slack
-      protonup-qt
       bitwarden-desktop
       nerd-fonts.jetbrains-mono
 
+      #TODO: Gaming dir
+      gamescope
+      goverlay
+      protonup-qt
+
+
+      #TODO: Programming dir
       rustup
     ];
+
+  programs.mangohud = {
+    enable = true;
+    enableSessionWide = true;
+  };
 
   programs.home-manager.enable = true;
 

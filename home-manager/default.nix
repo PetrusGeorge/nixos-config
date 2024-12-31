@@ -18,7 +18,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = {inherit inputs outputs;};
+    extraSpecialArgs = {inherit inputs outputs pkgs-stable;};
     users = {
       "petrus" = import ./home.nix;
     };
