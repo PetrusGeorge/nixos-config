@@ -3,5 +3,6 @@
     ./git.nix
     ./fish.nix
     ./ghostty.nix
+    ./neovim
   ];
 }

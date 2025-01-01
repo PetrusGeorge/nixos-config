@@ -57,7 +57,7 @@
   programs.chromium.enable = true;
 
   # Editors
-  programs.neovim.enable = true;
+  #programs.neovim.enable = true;
   programs.zed-editor.enable = true;
   home.packages = with pkgs; [
     # CLI
