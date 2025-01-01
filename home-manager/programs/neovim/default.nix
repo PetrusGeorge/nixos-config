@@ -78,7 +78,7 @@
         group = group_cdpwd,
       	 pattern = "*",
         callback = function()
-           m.api.nvim_set_current_dir(vim.fn.expand("%:p:h"))
+           vim.api.nvim_set_current_dir(vim.fn.expand("%:p:h"))
         end,
       })
 

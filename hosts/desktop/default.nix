@@ -39,7 +39,7 @@
     device = "nodev";
   };
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  
+
   # Fix for 60% layout
   boot.extraModprobeConfig = ''
     options hid_apple fnmode=0
@@ -164,6 +164,6 @@
       options = ["nofail"];
     };
   };
-  
+
   system.stateVersion = "24.11";
 }

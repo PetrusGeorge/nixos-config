@@ -16,23 +16,22 @@
               type = "filesystem";
               format = "vfat";
               mountpoint = "/boot";
-              mountOptions = [ "umask=0077" ];
+              mountOptions = ["umask=0077"];
             };
           };
-          root =
-            let
-              mountOptions = [
-                "compress=zstd"
-                "noatime"
-                "ssd"
-                "discard=async"
-                "space_cache=v2"
-              ];
-            in {
+          root = let
+            mountOptions = [
+              "compress=zstd"
+              "noatime"
+              "ssd"
+              "discard=async"
+              "space_cache=v2"
+            ];
+          in {
             size = "100%";
             content = {
               type = "btrfs";
-              extraArgs = [ "-f" ]; # Override existing partition
+              extraArgs = ["-f"]; # Override existing partition
               subvolumes = {
                 "@" = {
                   mountpoint = "/";
