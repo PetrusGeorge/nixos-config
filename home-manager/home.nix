@@ -1,12 +1,7 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {
-  inputs,
-  outputs,
-  lib,
-  config,
   pkgs,
-  pkgs-stable,
   ...
 }: {
   # You can import other home-manager modules here
@@ -51,6 +46,7 @@
   programs.eza.enable = true;
   programs.zoxide.enable = true;
   programs.thefuck.enable = true;
+  programs.helix.enable = true;
 
   # Browsers
   programs.librewolf.enable = true;
