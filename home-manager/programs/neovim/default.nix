@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   pkgs,
   ...
@@ -7,9 +6,15 @@
   programs.neovim = {
     enable = true;
     extraPackages = with pkgs; [
-      # LazyVim
+      # Language Servers
       lua-language-server
       stylua
+      rust-analyzer
+      mesonlsp
+      pyright
+      nil
+      clang-tools
+
       # Telescope
       ripgrep
     ];
@@ -114,7 +119,11 @@
         (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins:
           with plugins; [
             c
+            cpp
             lua
+            nix
+            python
+            rust
           ]))
         .dependencies;
     };

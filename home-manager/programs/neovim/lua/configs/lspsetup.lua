@@ -9,6 +9,7 @@ local servers = {
     },
     pyright = {},
     mesonlsp = {},
+    nil_ls = {},
 
     lua_ls = {
         settings = {

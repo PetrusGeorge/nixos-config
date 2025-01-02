@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [inputs.ghostty-hm.homeModules.default];
   programs.ghostty = {
     enable = true;
