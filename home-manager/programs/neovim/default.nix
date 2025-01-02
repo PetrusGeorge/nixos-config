@@ -15,6 +15,9 @@
       nil
       clang-tools
 
+      # Dap
+      lldb
+
       # Telescope
       ripgrep
     ];
