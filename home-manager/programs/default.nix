@@ -6,8 +6,9 @@
     ./cli.nix
     ./fish.nix
     ./gaming.nix
-    ./ghostty.nix
+    #./ghostty.nix
     ./git.nix
+    ./kitty.nix
     ./programming.nix
   ];
 }

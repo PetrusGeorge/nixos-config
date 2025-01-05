@@ -152,11 +152,11 @@
 
   # Mount external drives
   fileSystems = {
-    "/run/media/SSD" = {
+    "/media/SSD" = {
       device = "/dev/sda1";
       options = ["nofail"];
     };
-    "/run/media/HD" = {
+    "/media/HD" = {
       device = "/dev/sdb1";
       options = ["nofail"];
     };
