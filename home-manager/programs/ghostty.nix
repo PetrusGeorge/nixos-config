@@ -1,11 +1,11 @@
-{inputs, ...}: {
-  imports = [inputs.ghostty-hm.homeModules.default];
+{pkgs, ...}: {
   programs.ghostty = {
     enable = true;
-    package = inputs.ghostty.packages.x86_64-linux.default;
+    package = pkgs.ghostty;
     settings = {
       theme = "catppuccin-mocha";
       window-decoration = false;
+      confirm-close-surface = false;
     };
   };
 }

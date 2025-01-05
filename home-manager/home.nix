@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   imports = [
     ./programs
     ./gui
@@ -21,6 +21,19 @@
   home.sessionVariables = {
     EDITOR = "vim";
   };
+
+  # Fonts
+  home.packages = with pkgs; [
+    # Icon
+    material-design-icons
+    font-awesome
+
+    # Emojis
+    noto-fonts-emoji
+
+    # Nerd fonts
+    nerd-fonts.jetbrains-mono
+  ];
 
   ## Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

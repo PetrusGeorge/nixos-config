@@ -9,10 +9,17 @@
   programs.yazi.enable = true;
   programs.lazygit.enable = true;
   programs.btop.enable = true;
-  programs.zellij.enable = true;
   programs.eza.enable = true;
   programs.zoxide.enable = true;
+  programs.fastfetch.enable = true;
   programs.thefuck.enable = true;
+
+  programs.zellij = {
+    enable = true;
+    settings = {
+      theme = "catppuccin-mocha";
+    };
+  };
 
   # Testing helix
   programs.helix = {
@@ -45,5 +52,6 @@
     duf
     tokei
     delta
+    presenterm
   ];
 }
