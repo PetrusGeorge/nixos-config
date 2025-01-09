@@ -16,6 +16,11 @@
   };
   home.sessionVariables.DEFAULT_BROWSER = "${pkgs.librewolf}/bin/librewolf";
 
+  # PDF viewer
+  programs.zathura.enable = true;
+  # Image viewer
+  programs.imv.enable = true;
+
   home.packages = with pkgs; [
     spotify
     vesktop

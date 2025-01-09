@@ -153,11 +153,11 @@
   # Mount external drives
   fileSystems = {
     "/media/SSD" = {
-      device = "/dev/sda1";
+      device = "/dev/disk/by-partuuid/96b14c8f-961a-4b27-847d-96cddef56883";
       options = ["nofail"];
     };
     "/media/HD" = {
-      device = "/dev/sdb1";
+      device = "/dev/disk/by-partuuid/4348eb24-bc34-4a75-9041-9e0a32cd7187";
       options = ["nofail"];
     };
   };
