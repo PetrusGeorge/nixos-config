@@ -58,10 +58,14 @@
         telescope-nvim
         todo-comments-nvim
         toggleterm-nvim
-        tokyonight-nvim
+        # tokyonight-nvim
         trouble-nvim
         vim-illuminate
         which-key-nvim
+        {
+          name = "catppuccin";
+          path = catppuccin-nvim;
+        }
         {
           name = "LuaSnip";
           path = luasnip;
@@ -125,6 +129,7 @@
             cpp
             lua
             nix
+            meson
             python
             rust
           ]))

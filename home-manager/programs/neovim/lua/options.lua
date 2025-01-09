@@ -3,7 +3,7 @@ local o = vim.o
 local g = vim.g
 
 --Colorscheme
-vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme catppuccin")
 
 o.laststatus = 3
 o.showmode = false
