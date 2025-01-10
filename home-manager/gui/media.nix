@@ -1,9 +1,9 @@
-{pkgs, ...}:
+{pkgs, pkgs-stable, ...}:
 # media - control and enjoy audio/video
 {
   home.packages = with pkgs; [
     # audio control
-    pavucontrol
+    pkgs-stable.pavucontrol
     playerctl
     pulsemixer
     imv # simple image viewer

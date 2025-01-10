@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -14,6 +14,9 @@
         "GDK_BACKEND,wayland"
       ];
     };
+    plugins = with pkgs.hyprlandPlugins; [
+      hyprsplit
+    ];
     extraConfig = builtins.readFile ./conf/hyprland.conf;
     # gammastep/wallpaper-switcher need this to be enabled.
     systemd = {

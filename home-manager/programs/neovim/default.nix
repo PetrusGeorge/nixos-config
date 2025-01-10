@@ -58,7 +58,6 @@
         telescope-nvim
         todo-comments-nvim
         toggleterm-nvim
-        # tokyonight-nvim
         trouble-nvim
         vim-illuminate
         which-key-nvim

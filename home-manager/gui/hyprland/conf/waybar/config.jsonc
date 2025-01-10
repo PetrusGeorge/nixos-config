@@ -5,7 +5,6 @@
   "modules-left": ["custom/launcher", "temperature", "backlight", "hyprland/workspaces"],
   "modules-center": ["custom/playerctl"],
   "modules-right": [
-    "mpd",
     "pulseaudio",
     "battery",
     "memory",
@@ -20,21 +19,18 @@
     "format": "{icon}",
     "on-click": "activate",
     "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
-      "6": "",
-      "7": "",
-      "8": "",
-      "9": "",
-      "10": "〇",
-      "focused": "",
-      "default": "",
+      "11": "1",
+      "12": "2",
+      "13": "3",
+      "14": "4",
+      "15": "5",
+      "16": "6",
+      "17": "7",
+      "18": "8",
+      "19": "9",
+      "20": "10",
     },
   },
-
   "clock": {
     "interval": 60,
     "align": 0,
@@ -46,8 +42,6 @@
   "cpu": {
     "format": "\udb80\udf5b {usage}%",
     "interval": 1,
-    "on-click-middle": "foot btop",
-    "on-click-right": "foot btop",
   },
   "custom/launcher": {
     "format": "\uf313 ",
@@ -75,28 +69,6 @@
     "states": {
       "warning": 85,
     },
-  },
-  "mpd": {
-    "interval": 2,
-    "unknown-tag": "N/A",
-    "format": "{stateIcon} {artist} - {title}",
-    "format-disconnected": " Disconnected",
-    "format-paused": "{stateIcon} {artist} - {title}",
-    "format-stopped": "Stopped ",
-    "state-icons": {
-      "paused": "",
-      "playing": "",
-    },
-    "tooltip-format": "MPD (connected)",
-    "tooltip-format-disconnected": "MPD (disconnected)",
-    // Commands to execute on events
-    "on-click": "mpc toggle",
-    "on-click-middle": "mpc prev",
-    "on-click-right": "mpc next",
-    "on-update": "",
-    "on-scroll-up": "mpc seek +00:00:01",
-    "on-scroll-down": "mpc seek -00:00:01",
-    "smooth-scrolling-threshold": 1,
   },
   "custom/playerctl": {
     "format": "{icon}  <span>{}</span>",
