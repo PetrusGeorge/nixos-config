@@ -1,13 +1,16 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
   programs.mangohud = {
     enable = true;
     enableSessionWide = true;
   };
 
   home.packages = with pkgs; [
-    #TODO: Gaming dir
     gamescope
     goverlay
     protonup-qt
+    heroic
+    wineWowPackages.stable
+    winetricks
+    inputs.umu.packages."x86_64-linux".umu
   ];
 }

@@ -7,6 +7,7 @@
     wlogout # logout menu
     wl-clipboard # copying and pasting
     hyprpicker # color picker
+    xorg.xrandr # Utility for xwayland programs
 
     hyprshot # screen shot
     grim # taking screenshots

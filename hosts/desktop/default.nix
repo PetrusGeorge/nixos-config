@@ -4,6 +4,7 @@
 {
   outputs,
   pkgs,
+  pkgs-stable,
   inputs,
   ...
 }: {
@@ -77,6 +78,16 @@
   programs.hyprland.enable = true;
   # Default display manager
   services.displayManager.ly.enable = true;
+
+  # Enable virtualisation
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = ["petrus"];
+  virtualisation.libvirtd = {
+    enable = true;
+    # Fix black screen on virtual machines
+    qemu.package = pkgs-stable.qemu;
+  };
+  virtualisation.spiceUSBRedirection.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
   #services.displayManager.sddm.wayland.enable = true;

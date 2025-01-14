@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     # audio control
+    # Stable version to avoid crashes
     pkgs-stable.pavucontrol
     playerctl
     pulsemixer

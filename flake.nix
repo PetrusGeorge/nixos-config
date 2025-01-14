@@ -23,6 +23,8 @@
       url = "github:anyrun-org/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    umu.url = "github:Open-Wine-Components/umu-launcher?dir=packaging/nix";
   };
 
   outputs = {
@@ -32,7 +34,6 @@
   } @ inputs: let
     inherit (self) outputs;
     systems = [
-      "aarch64-linux"
       "x86_64-linux"
     ];
     forAllSystems = nixpkgs.lib.genAttrs systems;
@@ -41,12 +42,6 @@
         system = "x86_64-linux";
         config.allowUnfree = true;
       };
-
-      #pkgs-cplex = import inputs.nixpkgs-cplex {
-      #  system = "x86_64-linux";
-      #  config.allowUnfree = true;
-      #  config.cplex.releasePath = /home/zaaz/Downloads/ILOG_COS_20.10_LINUX_X86_64.bin;
-      #};
 
       inherit inputs outputs;
     };

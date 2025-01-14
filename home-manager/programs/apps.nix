@@ -22,6 +22,7 @@
   programs.imv.enable = true;
 
   home.packages = with pkgs; [
+    qbittorrent
     spotify
     vesktop
     slack
