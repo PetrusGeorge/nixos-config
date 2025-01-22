@@ -84,8 +84,9 @@
   users.groups.libvirtd.members = ["petrus"];
   virtualisation.libvirtd = {
     enable = true;
-    # Fix black screen on virtual machines
-    qemu.package = pkgs-stable.qemu;
+    # Enable efi
+    qemu.ovmf.enable = true;
+
   };
   virtualisation.spiceUSBRedirection.enable = true;
 
