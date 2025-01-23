@@ -13,5 +13,10 @@
     cmake    
     lldb
     gdb
+
+    # Ansible
+    ansible
+    ansible-lint
+    sshpass
   ];
 }
