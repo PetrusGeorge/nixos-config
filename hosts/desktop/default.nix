@@ -86,9 +86,20 @@
     enable = true;
     # Enable efi
     qemu.ovmf.enable = true;
-
   };
   virtualisation.spiceUSBRedirection.enable = true;
+
+  services.avahi = {
+    nssmdns4 = true;
+    enable = true;
+    ipv4 = true;
+    ipv6 = true;
+    publish = {
+      enable = true;
+      addresses = true;
+      workstation = true;
+    };
+  };
 
   # Enable the KDE Plasma Desktop Environment.
   #services.displayManager.sddm.wayland.enable = true;
@@ -106,6 +117,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    jack.enable = true;
   };
 
   programs.gamemode.enable = true;
@@ -169,7 +181,7 @@
       options = ["nofail"];
     };
     "/media/HD" = {
-      device = "/dev/disk/by-partuuid/4348eb24-bc34-4a75-9041-9e0a32cd7187";
+      device = "/dev/disk/by-partuuid/1158a310-61fe-4d75-9ac7-1f21b25e06e5";
       options = ["nofail"];
     };
   };

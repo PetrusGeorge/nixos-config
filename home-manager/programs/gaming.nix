@@ -1,4 +1,8 @@
-{pkgs, inputs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   programs.mangohud = {
     enable = true;
     enableSessionWide = true;

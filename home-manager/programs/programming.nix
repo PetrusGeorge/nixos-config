@@ -10,7 +10,7 @@
     meson
     ninja
     clang-tools
-    cmake    
+    cmake
     lldb
     gdb
 

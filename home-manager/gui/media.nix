@@ -1,4 +1,8 @@
-{pkgs, pkgs-stable, ...}:
+{
+  pkgs,
+  pkgs-stable,
+  ...
+}:
 # media - control and enjoy audio/video
 {
   home.packages = with pkgs; [
