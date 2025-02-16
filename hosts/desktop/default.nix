@@ -4,7 +4,6 @@
 {
   outputs,
   pkgs,
-  pkgs-stable,
   inputs,
   ...
 }: {
@@ -12,6 +11,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.disko.nixosModules.default
+    inputs.musnix.nixosModules.musnix
     (import ./disk-config.nix {device = "/dev/nvme0n1";})
   ];
 
@@ -89,6 +89,10 @@
   };
   virtualisation.spiceUSBRedirection.enable = true;
 
+  #Guitarix fix + audio delay optimization
+  musnix.enable = true;
+  musnix.rtcqs.enable = true;
+
   services.avahi = {
     nssmdns4 = true;
     enable = true;
@@ -126,7 +130,7 @@
   users.users.petrus = {
     isNormalUser = true;
     description = "Petrus";
-    extraGroups = ["networkmanager" "wheel" "corectrl"];
+    extraGroups = ["networkmanager" "wheel" "corectrl" "audio"];
     initialPassword = "123";
     shell = pkgs.fish;
   };

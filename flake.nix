@@ -24,6 +24,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    musnix.url = "github:musnix/musnix";
     umu.url = "github:Open-Wine-Components/umu-launcher?dir=packaging/nix";
   };
 

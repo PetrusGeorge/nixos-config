@@ -15,6 +15,6 @@
     heroic
     wineWowPackages.stable
     winetricks
-    inputs.umu.packages."x86_64-linux".umu
+    inputs.umu.packages."x86_64-linux".umu-launcher
   ];
 }

@@ -1,14 +1,9 @@
-{
-  pkgs,
-  ...
-}: {
-
+{pkgs, ...}: {
   home.packages = with pkgs; [
+    ardour
     audacity
-    tuxguitar
-    lmms
-    # ardour
     guitarix
-    lingot
+    qpwgraph
+    tuxguitar
   ];
 }
