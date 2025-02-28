@@ -91,7 +91,6 @@
 
   #Guitarix fix + audio delay optimization
   musnix.enable = true;
-  musnix.rtcqs.enable = true;
 
   services.avahi = {
     nssmdns4 = true;

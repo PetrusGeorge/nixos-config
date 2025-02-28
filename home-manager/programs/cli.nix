@@ -23,6 +23,7 @@
   };
 
   home.packages = with pkgs; [
+    linuxPackages_latest.perf
     hyperfine
     duf
     tokei

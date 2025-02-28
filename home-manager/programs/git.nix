@@ -5,9 +5,9 @@
     userEmail = "petrus.george.leal@gmail.com";
     userName = "PetrusGeorge";
     delta.enable = true;
+    signing.format = "ssh";
     extraConfig = {
       commit.gpgsign = true;
-      gpg.format = "ssh";
       user.signingkey = "~/.ssh/id_signGit.pub";
       init.defaultBranch = "main";
       core.editor = "vim";
