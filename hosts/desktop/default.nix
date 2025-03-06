@@ -124,7 +124,12 @@
   };
 
   programs.gamemode.enable = true;
-  programs.steam.enable = true;
+  programs.steam = {
+    enable = true;
+    extraPackages = with pkgs; [
+      love # Balatro native
+    ];
+  };
   programs.fish.enable = true;
   users.users.petrus = {
     isNormalUser = true;

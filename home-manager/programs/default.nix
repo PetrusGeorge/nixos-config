@@ -1,6 +1,5 @@
 {...}: {
   imports = [
-    ./neovim
     ./wezterm
 
     ./apps.nix

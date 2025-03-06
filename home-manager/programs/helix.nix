@@ -9,6 +9,12 @@
         cursor-shape.insert = "bar";
       };
     };
+    languages = {
+      language-server.rust-analyzer.config = {
+        check.command = "clippy";
+        cargo.features = "all";
+      };
+    };
     extraPackages = with pkgs; [
       # Language Servers
       lua-language-server
