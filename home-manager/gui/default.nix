@@ -1,7 +1,7 @@
 {...}: {
   imports = [
-    ./hyprland
+    # ./hyprland
     ./theme.nix
-    ./media.nix
+    # ./media.nix
   ];
 }

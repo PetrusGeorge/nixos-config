@@ -62,5 +62,14 @@
         ];
       };
     };
+    nixosConfigurations = {
+      thinkpad = nixpkgs.lib.nixosSystem {
+        specialArgs = args;
+        modules = [
+          ./hosts/thinkpad
+          ./home-manager
+        ];
+      };
+    };
   };
 }
