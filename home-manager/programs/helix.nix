@@ -10,9 +10,11 @@
       };
     };
     languages = {
-      language-server.rust-analyzer.config = {
-        check.command = "clippy";
-        cargo.features = "all";
+      language-server = {
+        rust-analyzer.config = {
+          check.command = "clippy";
+          cargo.features = "all";
+        };
       };
     };
     extraPackages = with pkgs; [
@@ -21,11 +23,14 @@
       stylua
       rust-analyzer
       mesonlsp
-      pyright
       nil
       clang-tools
       ansible-language-server
       bash-language-server
+      python312Packages.python-lsp-server
+      ruff
+      docker-compose-language-service
+      dockerfile-language-server-nodejs
 
       # Dap
       lldb

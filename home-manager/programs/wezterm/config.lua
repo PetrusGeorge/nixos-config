@@ -5,6 +5,7 @@ return {
 	font = wezterm.font("JetBrains Mono"),
 	font_size = 13.0,
 	enable_tab_bar = false,
+	window_decorations = "NONE",
 	term = "wezterm",
 }
 

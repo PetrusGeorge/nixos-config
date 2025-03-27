@@ -12,8 +12,19 @@
     ./hardware-configuration.nix
     inputs.disko.nixosModules.default
     inputs.musnix.nixosModules.musnix
+    inputs.nixos-cosmic.nixosModules.default
     (import ./disk-config.nix {device = "/dev/nvme0n1";})
   ];
+
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+    ];
+    config = {
+      allowUnfree = true;
+    };
+  };
 
   environment.sessionVariables = rec {
     XDG_CACHE_HOME = "$HOME/.cache";
@@ -39,7 +50,6 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "thinkpad"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -63,17 +73,18 @@
   };
 
   # Default display manager
-  services.displayManager.sddm = {
+  services.displayManager.cosmic-greeter.enable = true;
+
+  # Use cosmic as DE
+  services.desktopManager.cosmic.enable = true;
+
+  virtualisation.podman = {
     enable = true;
-    wayland.enable = true;
+    dockerCompat = true;
+    defaultNetwork.settings.dns_enabled = true;
   };
 
-  services.xserver = {
-    enable = true;
-    desktopManager.lxqt.enable = true;
-  };
-  programs.river.enable = true;
-  programs.labwc.enable = true;
+  hardware.bluetooth.enable = true;
 
   # Enable virtualisation
   # programs.virt-manager.enable = true;
@@ -122,19 +133,9 @@
   users.users.petrus = {
     isNormalUser = true;
     description = "Petrus";
-    extraGroups = ["networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     initialPassword = "123";
     shell = pkgs.fish;
-  };
-
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-    ];
-    config = {
-      allowUnfree = true;
-    };
   };
 
   # List packages installed in system profile. To search, run:
@@ -147,7 +148,9 @@
     unzip
     wget
 
-    swaylock
+    # Podman extras
+    podman-compose
+    podman-tui
   ];
 
   # Enable zram

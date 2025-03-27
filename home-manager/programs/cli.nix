@@ -29,5 +29,6 @@
     tokei
     delta
     presenterm
+    distrobox
   ];
 }
