@@ -23,6 +23,7 @@
   };
 
   home.packages = with pkgs; [
+    distrobox
     linuxPackages_latest.perf
     hyperfine
     duf

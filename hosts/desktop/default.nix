@@ -12,6 +12,8 @@
     ./hardware-configuration.nix
     inputs.disko.nixosModules.default
     inputs.musnix.nixosModules.musnix
+    inputs.nixos-cosmic.nixosModules.default
+
     (import ./disk-config.nix {device = "/dev/nvme0n1";})
   ];
 
@@ -21,7 +23,7 @@
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
 
-    FLAKE = "${XDG_CONFIG_HOME}/nixos";
+    NH_FLAKE = "${XDG_CONFIG_HOME}/nixos";
   };
 
   nix.settings = {
@@ -76,8 +78,21 @@
   programs.thunar.enable = true;
   # Necessary to make hyprland appear as a session
   programs.hyprland.enable = true;
+
+  # Cosmic as a fallback
+  services.desktopManager.cosmic.enable = true;
   # Default display manager
-  services.displayManager.ly.enable = true;
+  services.displayManager.cosmic-greeter.enable = true;
+  # services.displayManager.ly.enable = true;
+
+  virtualisation = {
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
 
   # Enable virtualisation
   programs.virt-manager.enable = true;
@@ -158,6 +173,11 @@
     gnumake
     unzip
     wget
+
+    # Podman extras
+    dive
+    podman-compose
+    podman-tui
   ];
 
   # Enable zram
@@ -185,7 +205,8 @@
   # Mount external drives
   fileSystems = {
     "/media/SSD" = {
-      device = "/dev/disk/by-partuuid/96b14c8f-961a-4b27-847d-96cddef56883";
+      device = "/dev/disk/by-partuuid/b17846f6-7486-4fcf-8a4e-8152177cf8a6";
+      
       options = ["nofail"];
     };
     "/media/HD" = {

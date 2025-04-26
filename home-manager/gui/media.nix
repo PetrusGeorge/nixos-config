@@ -9,6 +9,7 @@
     # audio control
     # Stable version to avoid crashes
     pkgs-stable.pavucontrol
+    vlc
     playerctl
     pulsemixer
     imv # simple image viewer

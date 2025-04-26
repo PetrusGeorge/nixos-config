@@ -3,11 +3,9 @@
   inputs,
   ...
 }: {
-  imports = [
-    inputs.anyrun.homeManagerModules.default
-  ];
   programs.anyrun = {
     enable = true;
+    package = inputs.anyrun.packages.${pkgs.system}.anyrun;
     config = {
       plugins = with inputs.anyrun.packages.${pkgs.system}; [
         applications

@@ -18,5 +18,12 @@
     ansible
     ansible-lint
     sshpass
+
+    # Dev
+    python3
+    bun
+
+    # Fallback
+    vscode
   ];
 }

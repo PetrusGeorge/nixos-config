@@ -22,10 +22,10 @@
   programs.imv.enable = true;
 
   home.packages = with pkgs; [
+    bottles
     qbittorrent
     spotify
     vesktop
-    slack
     bitwarden-desktop
     whatsapp-for-linux
   ];
