@@ -19,11 +19,12 @@
     ansible-lint
     sshpass
 
-    # Dev
+    # Python
+    ruff
+    uv
     python3
-    bun
 
-    # Fallback
-    vscode
+    # JS
+    bun
   ];
 }

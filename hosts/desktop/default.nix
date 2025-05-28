@@ -79,6 +79,20 @@
   # Necessary to make hyprland appear as a session
   programs.hyprland.enable = true;
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc.lib
+      zlib
+      openssl
+    ];
+  };
+
+  environment.shellAliases = {
+    # Shortcut to enter shell
+    nixld = "nix develop ~/.config/nixos/shells#nixld -c $SHELL";
+  };
+
   # Cosmic as a fallback
   services.desktopManager.cosmic.enable = true;
   # Default display manager
