@@ -12,7 +12,6 @@
   programs.eza.enable = true;
   programs.zoxide.enable = true;
   programs.fastfetch.enable = true;
-  programs.thefuck.enable = true;
 
   programs.zellij = {
     enable = true;

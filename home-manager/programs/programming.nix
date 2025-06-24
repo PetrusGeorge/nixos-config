@@ -6,6 +6,13 @@
     # Rust
     rustup
 
+    # Haskell
+    ghc
+    ghcid
+    haskell-language-server
+    stack
+    ormolu
+
     # CPP
     meson
     ninja

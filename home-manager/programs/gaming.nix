@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-stable,
   inputs,
   ...
 }: {
@@ -8,7 +9,7 @@
   };
 
   home.packages = with pkgs; [
-    gamescope
+    pkgs-stable.gamescope
     goverlay
     protonup-qt
     heroic

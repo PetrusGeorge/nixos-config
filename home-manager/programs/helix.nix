@@ -12,6 +12,12 @@
       };
     };
     languages = {
+      language = [
+        {
+          name = "haskell";
+          auto-format = true;
+        }
+      ];
       language-server = {
         rust-analyzer.config = {
           check.command = "clippy";
