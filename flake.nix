@@ -61,9 +61,18 @@
 
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = args;
+        specialArgs = args // {currentSystem = "desktop";};
         modules = [
           ./hosts/desktop
+          ./home-manager
+        ];
+      };
+    };
+    nixosConfigurations = {
+      thinkpad = nixpkgs.lib.nixosSystem {
+        specialArgs = args // {currentSystem = "thinkpad";};
+        modules = [
+          ./hosts/thinkpad
           ./home-manager
         ];
       };

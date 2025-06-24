@@ -4,6 +4,7 @@
   inputs,
   outputs,
   pkgs-stable,
+  currentSystem,
   ...
 }: {
   # You can import other home-manager modules here
@@ -15,7 +16,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = {inherit inputs outputs pkgs-stable;};
+    extraSpecialArgs = {inherit inputs outputs pkgs-stable currentSystem;};
     users = {
       "petrus" = import ./home.nix;
     };

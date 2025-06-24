@@ -1,8 +1,17 @@
-{pkgs, ...}: {
-  imports = [
-    ./programs
-    ./gui
-  ];
+{
+  pkgs,
+  lib,
+  currentSystem,
+  ...
+}: let
+  isDesktop = currentSystem == "desktop";
+in {
+  imports =
+    [
+      ./programs
+      ./theme.nix
+    ]
+    ++ (lib.optional isDesktop ./desktop);
 
   home = {
     username = "petrus";

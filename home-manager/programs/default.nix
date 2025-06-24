@@ -9,6 +9,7 @@
     ./gaming.nix
     ./git.nix
     ./helix.nix
+    ./media.nix
     ./programming.nix
   ];
 }
