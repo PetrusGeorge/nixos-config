@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./helix
     ./wezterm
 
     ./apps.nix
@@ -8,7 +9,6 @@
     ./fish.nix
     ./gaming.nix
     ./git.nix
-    ./helix.nix
     ./media.nix
     ./programming.nix
   ];

@@ -1,0 +1,14 @@
+theme = "catppuccin_mocha"
+
+[editor]
+end-of-line-diagnostics = "hint"
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+
+[editor.lsp]
+display-messages = true
+

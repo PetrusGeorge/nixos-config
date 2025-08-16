@@ -1,0 +1,21 @@
+# [[language]]
+# name = "arduino"
+# scope = "source.arduino"
+# injection-regex = "arduino"
+# file-types = ["ino", "cpp", "h"]
+# roots = [ "sketch.yaml"]
+# comment-token = "//"
+# language-servers = [ "arduino-lsp" ]
+# indent = { tab-width = 4, unit = "    "}
+# grammar = "cpp"
+
+# [language-server.arduino-lsp]
+# command = "arduino-language-server" 
+
+[[language]]
+name = "haskell"
+auto-format = true
+
+[language-server.rust-analyzer.config.cargo]
+command = "clippy"
+features = "all"

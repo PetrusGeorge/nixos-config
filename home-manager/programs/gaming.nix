@@ -1,7 +1,6 @@
 {
   pkgs,
   pkgs-stable,
-  inputs,
   ...
 }: {
   programs.mangohud = {
@@ -16,6 +15,6 @@
     heroic
     wineWowPackages.stable
     winetricks
-    inputs.umu.packages."x86_64-linux".umu-launcher
+    umu-launcher
   ];
 }

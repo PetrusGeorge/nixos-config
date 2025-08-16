@@ -12,7 +12,6 @@
     ./hardware-configuration.nix
     inputs.disko.nixosModules.default
     inputs.musnix.nixosModules.musnix
-    inputs.nixos-cosmic.nixosModules.default
     (import ./disk-config.nix {device = "/dev/nvme0n1";})
   ];
 
@@ -86,6 +85,20 @@
 
   hardware.bluetooth.enable = true;
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc.lib
+      zlib
+      openssl
+    ];
+  };
+
+  environment.shellAliases = {
+    # Shortcut to enter shell
+    nixld = "nix develop ~/.config/nixos/shells#nixld -c $SHELL";
+  };
+
   # Enable virtualisation
   # programs.virt-manager.enable = true;
   # users.groups.libvirtd.members = ["petrus"];
@@ -133,7 +146,7 @@
   users.users.petrus = {
     isNormalUser = true;
     description = "Petrus";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "uucp" "dialout"];
     initialPassword = "123";
     shell = pkgs.fish;
   };

@@ -2,6 +2,14 @@
   home.packages = with pkgs; [
     # General
     pkg-config
+    just
+    watchexec
+
+    # Go
+    go
+    gopls
+    golangci-lint
+    delve
 
     # Rust
     rustup
@@ -33,5 +41,14 @@
 
     # JS
     bun
+
+    # Arduino
+    arduino-cli
+    screen
+
+    #Swift
+    swift
+    sourcekit-lsp
+    swift-format
   ];
 }

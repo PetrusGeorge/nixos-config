@@ -12,7 +12,6 @@
     ./hardware-configuration.nix
     inputs.disko.nixosModules.default
     inputs.musnix.nixosModules.musnix
-    inputs.nixos-cosmic.nixosModules.default
 
     (import ./disk-config.nix {device = "/dev/nvme0n1";})
   ];
