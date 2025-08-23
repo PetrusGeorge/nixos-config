@@ -214,6 +214,9 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
+  # Open syncthing ports
+  services.syncthing.openDefaultPorts = true;
+
   # Mount external drives
   fileSystems = {
     "/media/SSD" = {
