@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgs-stable,
   ...
 }: {
   programs.mangohud = {
@@ -9,7 +8,7 @@
   };
 
   home.packages = with pkgs; [
-    pkgs-stable.gamescope
+    gamescope
     goverlay
     protonup-qt
     heroic

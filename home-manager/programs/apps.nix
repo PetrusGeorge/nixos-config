@@ -23,6 +23,7 @@
 
   home.packages = with pkgs; [
     bottles
+    slack
     qbittorrent
     spotify
     vesktop

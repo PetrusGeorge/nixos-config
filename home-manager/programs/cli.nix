@@ -23,7 +23,7 @@
 
   home.packages = with pkgs; [
     distrobox
-    linuxPackages_latest.perf
+    perf
     hyperfine
     duf
     tokei
